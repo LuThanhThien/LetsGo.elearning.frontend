@@ -11,7 +11,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "../ui/dropdown-menu";
-import { DropdownNavbar } from "../ui/dropdown-navbar";
+import { DropdownNavbar, DropdownNav, FlyoutLink } from "../ui/dropdown-navbar";
 import { DropdownMenuLabel } from "@radix-ui/react-dropdown-menu";
 
 const UserNavbar = () => {
@@ -41,10 +41,8 @@ const UserNavbar = () => {
     </DropdownMenu>
   )
 
-  const menu = (
-    <DropdownNavbar href="#">
-      Khóa học
-    </DropdownNavbar>
+  const navLinks = (
+    <FlyoutLink href="/solutions">Solutions</FlyoutLink>
   )
 
   const searchButton = (
@@ -87,8 +85,9 @@ const UserNavbar = () => {
       <div className="user-navbar-container">
         <div className="left-navbar-container">
           {logoDark}
-          {menu}
-          {courseMenu}
+          {navLinks}
+          {/* {courseMenu}  */}
+          {/* <DropdownNav /> */}
         </div>
         
         <div className="right-navbar-container">
