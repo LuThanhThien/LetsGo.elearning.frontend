@@ -1,0 +1,59 @@
+@import '../css/color.css';
+
+// MenuContent
+.menu-content-box {
+   padding: 0.4rem;
+
+  .content-icon{
+    margin-left: 0.5rem;
+    margin-right: 1rem;
+    display: inline-block;
+  }
+
+  .menu-content {
+    display: flex;
+    position: relative;
+    border-radius: 0.3rem;
+    justify-content: left;
+    align-items: center;
+    top: 100%;
+    left: 10;
+    right: 10;
+    z-index: 1000;   
+    font-size: 1rem;
+    padding: 5px 5px;
+    width: auto;
+
+    &:hover {
+      background-color: var(--shadow);
+    }
+  }
+ }
+
+// MenuHeader
+.menu-header {
+  padding: 1rem 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--text-primary);
+  background-color: white;
+
+  .menu-header-icon {
+    margin-right: 1rem;
+  }
+
+  .menu-content-container {
+    padding: 0.5rem 0rem;
+    font-weight: normal;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+}
+
+
+// MenuDivider
+.menu-divider {
+  border-bottom: 1px solid var(--shadow);
+}

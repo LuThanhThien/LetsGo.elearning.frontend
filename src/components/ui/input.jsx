@@ -2,7 +2,7 @@ import * as React from "react"
 
 import { cn } from "@/lib/utils"
 
-const Input = React.forwardRef(({ className, type, startIcon, endIcon, ...props }, ref) => {
+const Input = React.forwardRef(({ className, type, iconClassStart, iconClassEnd, startIcon, endIcon, ...props }, ref) => {
   return (
     (
       <div
@@ -11,14 +11,14 @@ const Input = React.forwardRef(({ className, type, startIcon, endIcon, ...props 
         className,
       )}
       >
-        <div className="flex items-center"> {startIcon} </div>
+        <div className={cn("flex items-center", iconClassStart)}> {startIcon} </div>
         <input
           type={type}
           className=
             "w-full p-2 placeholder:text-muted-foreground focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50"
           ref={ref}
           {...props} />
-        <div className="flex items-center"> {endIcon} </div>
+        <div className={cn("flex items-center", iconClassEnd)}> {endIcon} </div>
       </div>
       )
   );

@@ -1,7 +1,6 @@
 import React from "react";
-import { Button } from "@/components/ui/button.jsx";
 import { useLocation, Route } from "react-router-dom";
-import routes from "@/routes";
+import UserNavbar from '../../components/navbars/UserNavbar.jsx';
 
 export default function Home() {
   const [navbarOpen, setNavbarOpen] = React.useState(false);
@@ -14,8 +13,8 @@ export default function Home() {
   //   mainContent.current.scrollTop = 0;
   // }, [location]);
 
-  const getRoutes = (routes) => {
-    return routes.map((prop, key) => {
+  const getRoutes = (userRoutes) => {
+    return userRoutes.map((prop, key) => {
       if (prop.layout === "/admin") {
         return (
           <Route path={prop.path} element={prop.component} key={key} exact />
@@ -39,13 +38,12 @@ export default function Home() {
   };
 
   return (
-    <>
-      <div className="main-content">
-        {/* <Button>
-          Click here
-        </Button> */}
+    <div className="bg-indigo-300">
+      <UserNavbar />
+      <div>
+        Home
       </div>
-    </>
+    </div>
   );
 
 };

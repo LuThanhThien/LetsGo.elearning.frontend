@@ -1,34 +1,23 @@
 /* colors.css */
 
 :root {
-  --primary: #007bff; 
-  --secondary: #6c757d;
-  
+  --primary: #fcd46e !important;
+  --primary-darken: #fdc843 !important;
+  --secondary: #fe7210 !important;
+  --shadow: #f1f2f4 !important;
+  --black: #212529 !important;
+
   --background-primary: #fff0e5;
   --background-secondary: #f1f2f4;
-  --background-dark: #10162f;
-  --background-light: white;
 
-  --button-background: #edc251;
-  --button-background-hover: black;
-
-  --text-primary: #212529;
-  --text-secondary: #6c757d;
-  --text-light: #f8f9fa;
+  --text-black: #212529;
+  --text-gray:#6c757d;
+  --text-shadow: #f8f9fa;
 
   --border-primary: #ced4da;
   --border-secondary: #6c757d;
-  --border-dark: #10162f;
-  --border-light: #f8f9fa;
-
+  --border-black: #10162f;
+  --border-shadow: #f8f9fa;
  }
 
-
- .text-white {
-  color: var(--text-light) !important;
- }
-
-.text-primary {
-  color: var(--primary) !important;
-}
  
