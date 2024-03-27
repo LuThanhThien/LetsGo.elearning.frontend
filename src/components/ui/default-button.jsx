@@ -3,7 +3,7 @@ import { Slot } from "@radix-ui/react-slot"
 import { cva } from "class-variance-authority";
 
 import { cn } from "@/lib/utils"
-import "@/components/ui/button-nav.scss"
+import "@/components/ui/default-button.scss"
 
 const buttonVariants = cva(
   "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
@@ -35,20 +35,36 @@ const buttonVariants = cva(
 )
 
 
-const ButtonNav = React.forwardRef(({ className, href, variant, size, icon, children, asChild = false, border = true, ...props }, ref) => {
-  const Comp = asChild ? Slot : "button"
+const DefaultButton = React.forwardRef(({ container, className, variant, size, icon, href = "", children, background = true, ...props }, ref) => {
+
+  // Check containing href link or not
+  const isLink = () => {
+    const stripHref = href.replace(/(^\w+:|^)\/\//, '');
+    if (stripHref.length > 0) {
+      // console.log("Href is a link: ", stripHref)
+      return true
+    }
+    // console.log("Href is not a link")
+    return false
+  }
+  
+  // If href comp is "a" tag else "button" tag
+  const Comp = isLink() ? "a" : "button"
+  
   return (
-    <a href={href}>
-      <Comp
-        className={cn(buttonVariants({ variant, size, className }), (border && "button-nav-background"))}
+    (<div className={container}>
+      <Comp 
         ref={ref}
-        {...props} >
-        {icon && <span className="mr-2">{icon}</span>}
-        {children}
+        href={href}
+        className={cn(buttonVariants({ variant, size, className }), (background && "button-nav-background"), className)}
+        {...props}
+        >
+          {icon && <span className="mr-2">{icon}</span>}
+          {children}
       </Comp>
-    </a>
+    </div>)    
   );
 })
-ButtonNav.displayName = "ButtonNav"
+DefaultButton.displayName = "DefaultButton"
 
-export { ButtonNav, buttonVariants }
+export { DefaultButton, buttonVariants }

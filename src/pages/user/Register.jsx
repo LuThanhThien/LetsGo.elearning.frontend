@@ -1,11 +1,24 @@
 import React from "react";
-import UserNavbar from '../../components/navbars/UserNavbar.jsx';
+import UserNavbar from '@/components/navbar/UserNavbar.jsx';
+import RegisterForm from "@/components/auth/RegisterForm";
+import UserFooter from "@/components/footer/UserFooter";
 
-const Register = () => {
+import "./Auth.scss";   
+
+import loginImage from "@/assets/img/user/login-background.png";
+
+
+const Register = () => { 
    return(
-      <div>
+      <div className="login">
          <UserNavbar />
-         Register
+            <div className="login-container">
+               <div className="login-media">
+                  <img src={loginImage} className="login-image" />
+               </div>
+               <RegisterForm />
+            </div>
+         <UserFooter />
       </div>
    )
 }

@@ -1,6 +1,7 @@
 import React from "react";
 import { useLocation, Route } from "react-router-dom";
-import UserNavbar from '../../components/navbars/UserNavbar.jsx';
+import UserNavbar from '../../components/navbar/UserNavbar.jsx';
+import UserFooter from '../../components/footer/UserFooter.jsx';
 
 export default function Home() {
   const [navbarOpen, setNavbarOpen] = React.useState(false);
@@ -43,6 +44,7 @@ export default function Home() {
       <div>
         Home
       </div>
+      <UserFooter />
     </div>
   );
 

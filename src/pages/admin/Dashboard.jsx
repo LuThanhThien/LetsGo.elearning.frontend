@@ -1,5 +1,5 @@
 import React from "react";
-import AdminNavbar from '../../components/navbars/AdminNavbar.jsx';
+import AdminNavbar from '../../components/navbar/AdminNavbar.jsx';
 
 export default function Admin() {
   return (

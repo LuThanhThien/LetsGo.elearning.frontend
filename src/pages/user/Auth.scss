@@ -1,0 +1,64 @@
+@import url('../../components/css/color.css');
+
+.login {
+   display: inline-block;
+   align-items: center;
+   justify-content: center;   
+   height: 100vh;
+   
+   .login-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-left: 10px;
+      padding-top: 30px;
+      padding-bottom: 30px;
+      padding-right: 100px;
+
+      .login-media {
+         align-items: center;
+         justify-content: center;
+         padding: 10px;
+
+         .login-image {
+            display: block;
+            align-items: center;
+            justify-content: center;
+            background-color: white;
+         }
+      }
+
+      .login-box {
+         display: flex;
+         border: 3px solid var(--shadow);
+         display: block;
+         align-items: center;
+         justify-content: center;
+         border-radius: 5px;
+         background-color: white;
+         width: 1000px;
+      }
+   }
+}
+
+@media (min-width:1300px) {
+   .login {
+      .login-container {
+         padding-top: 30px;
+      }
+   }
+}
+
+
+@media (max-width: 1300px) {
+   .login {
+     .login-container {
+         padding-right: 10px; /* Linear change in padding from 50px to 10px */
+
+         .login-media {
+            display: none; /* Hide login-media when window width is less than 700px */
+         }
+      }
+   }
+}
+ 

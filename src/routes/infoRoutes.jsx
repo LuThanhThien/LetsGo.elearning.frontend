@@ -4,14 +4,14 @@ import Price from "@/pages/info/Price"
 var infoRoutes = [
    {
       path: ["/price"],
-      name: "Home",
+      title: "Khuyến mãi",
       icon: "ni ni-tv-2 text-primary",
       component: <Price />,
       page: "/info",
    },
    {
       path: ["/about"],
-      name: "Home",
+      title: "Giới thiệu",
       icon: "ni ni-tv-2 text-primary",
       component: <About />,
       page: "/info",

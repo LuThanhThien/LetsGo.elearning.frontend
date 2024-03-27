@@ -1,8 +1,15 @@
 import * as React from "react"
 
 import { cn } from "@/lib/utils"
+import { Eye, EyeOff } from "lucide-react";
 
-const Input = React.forwardRef(({ className, type, iconClassStart, iconClassEnd, startIcon, endIcon, ...props }, ref) => {
+const Input = React.forwardRef(({ className, type, iconClassStart, iconClassEnd, startIcon, endIcon, isPassword, ...props }, ref) => {
+  const [showPassword, setShowPassword] = React.useState(false)
+  // console.log("Show password: " + showPassword)
+  const manageShowPassword = () => {
+    setShowPassword(!showPassword)
+  }
+
   return (
     (
       <div
@@ -11,14 +18,33 @@ const Input = React.forwardRef(({ className, type, iconClassStart, iconClassEnd,
         className,
       )}
       >
-        <div className={cn("flex items-center", iconClassStart)}> {startIcon} </div>
+        <div className={cn("flex items-center pr-2", iconClassStart)}> {startIcon} </div>
         <input
-          type={type}
+          onPaste={(e)=>{
+            if (!isPassword) { return true }
+            e.preventDefault()
+            return false;
+          }} onCopy={(e)=>{
+            if (!isPassword) { return true }
+            e.preventDefault()
+            return false;
+          }}
+          type={
+            isPassword ? (showPassword ? "text" : "password") : type || "text"
+          }
           className=
-            "w-full p-2 placeholder:text-muted-foreground focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50"
+            "w-full pl-2 pr-2 placeholder:text-muted-foreground focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50"
           ref={ref}
           {...props} />
-        <div className={cn("flex items-center", iconClassEnd)}> {endIcon} </div>
+        {isPassword && (
+          <div
+            className="cursor-pointer"
+            onClick={() =>manageShowPassword()}
+          >
+            {showPassword ? <Eye size={22}/> : <EyeOff size={22}/>}
+          </div>
+        )}
+        <div className={cn("flex items-center pl-2", iconClassEnd)}> {endIcon} </div>
       </div>
       )
   );

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./Navbar.scss";
-import { ButtonNav } from "@/components/ui/button-nav";
+import { DefaultButton } from "@/components/ui/default-button";
 import logoImageDark from "@/assets/img/brand/letsgo-iconv3-dark.png";
 import { Search, LogIn,  Pi, DraftingCompass, SquareFunction, GraduationCap } from "lucide-react";
 
@@ -19,11 +19,11 @@ const UserNavbar = () => {
   const handleSearch = (e) => {
     if (searchRef.current && !searchRef.current.contains(e.target)) {
       setSearchDropdownVisible(false);
-      console.log("Search dropdown visible: " + searchDropdownVisible);  
+      // console.log("Search dropdown visible: " + searchDropdownVisible);  
     } else if (searchRef.current && searchRef.current.contains(e.target)) {
       setSearchDropdownVisible(!searchDropdownVisible);
-      console.log("Set reverse");
-      console.log("Search dropdown visible: "+ searchDropdownVisible);
+      // console.log("Set reverse");
+      // console.log("Search dropdown visible: "+ searchDropdownVisible);
     }
   }
 
@@ -70,7 +70,7 @@ const UserNavbar = () => {
         </div>
         
         <div className="right-navbar-container">
-          <ButtonNav 
+          <DefaultButton 
           ref={searchRef} 
           icon={<Search />} 
           className="search-button" 
@@ -78,32 +78,32 @@ const UserNavbar = () => {
           size="search-button" 
           onClick={() => setSearchDropdownVisible(!searchDropdownVisible)}>
               Tìm kiếm
-          </ButtonNav>  
+          </DefaultButton>  
 
           {/* Start register button */}
           { onLogin && (
-            <ButtonNav 
+            <DefaultButton 
               href="/user/register"
               icon = {<LogIn />}
               className="signin-button" 
               variant="signin-button"
               size="signin-button">
                 Đăng ký
-            </ButtonNav>  
+            </DefaultButton>  
           )}
           {/* End register button */}
 
           
           {/* Start login button */}
           { onUser && (
-            <ButtonNav 
+            <DefaultButton 
               href="/user/login"
               icon = {<LogIn />}
               className="signin-button" 
               variant="signin-button"
               size="signin-button">
                 Đăng nhập
-            </ButtonNav>  
+            </DefaultButton>  
           )}
           {/* End login button */}
         </div>

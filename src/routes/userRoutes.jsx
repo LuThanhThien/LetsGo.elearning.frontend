@@ -6,21 +6,21 @@ import Register from "../pages/user/Register.jsx";
 var userRoutes = [
    {
       path: ["/", "/home"],
-      name: "Trang chủ",
+      title: "Let's Go!",
       icon: "ni ni-tv-2 text-primary",
       component: <Home />,
       page: "/user",
    },
    {
       path: ["/login"],
-      name: "Đăng nhập",
+      title: "Đăng nhập",
       icon: "ni ni-circle-08 text-pink",
       component: <Login />,
       page: "/user",
    },
    {
       path: ["/register"],
-      name: "Đăng ký",
+      title: "Đăng ký",
       icon: "ni ni-circle-08 text-pink",
       component: <Register />,
       page: "/user",

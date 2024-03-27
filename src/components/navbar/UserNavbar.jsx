@@ -1,10 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { cn } from "@/lib/utils"
 import "./Navbar.scss";
-import { ButtonNav } from "@/components/ui/button-nav";
+import { DefaultButton } from "@/components/ui/default-button";
 import { Input } from "@/components/ui/input";
 import logoImageDark from "@/assets/img/brand/letsgo-iconv3-dark.png";
-import { Search, LogIn,  Pi, DraftingCompass, SquareFunction, GraduationCap } from "lucide-react";
+import { 
+  Search, 
+  LogIn,  
+  Pi, 
+  DraftingCompass, 
+  SquareFunction, 
+  GraduationCap, 
+  Zap 
+} from "lucide-react";
 import { 
   DropdownNav, 
   MenuTrigger, 
@@ -29,8 +37,6 @@ const UserNavbar = React.forwardRef(({ className }, ref) => {
     currentRoute.startsWith("/info")
     ) ;
 
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [userName, setUserName] = useState(null);
 
   // const [size, setSize] = useState("default");
 
@@ -46,14 +52,14 @@ const UserNavbar = React.forwardRef(({ className }, ref) => {
     
     if (searchDropdownRef.current && searchDropdownRef.current.contains(e.target)) {
       setSearchDropdownVisible(true);
-      console.log("Search dropdown visible: " + searchDropdownVisible);
+      // console.log("Search dropdown visible: " + searchDropdownVisible);
     } else if (searchRef.current && !searchRef.current.contains(e.target)) {
       setSearchDropdownVisible(false);
-      console.log("Search dropdown visible: " + searchDropdownVisible);  
+      // console.log("Search dropdown visible: " + searchDropdownVisible);  
     } else if (searchRef.current && searchRef.current.contains(e.target)) {
       setSearchDropdownVisible(!searchDropdownVisible);
-      console.log("Set reverse");
-      console.log("Search dropdown visible: "+ searchDropdownVisible);
+      // console.log("Set reverse");
+      // console.log("Search dropdown visible: "+ searchDropdownVisible);
     }
   }
 
@@ -103,35 +109,35 @@ const UserNavbar = React.forwardRef(({ className }, ref) => {
         </div>
         
         <div className="right-navbar-container">
-          <ButtonNav 
+          <DefaultButton 
           ref={searchRef} 
           icon={<Search />} 
           className="search-button" 
           variant="search-button" 
           size="search-button" 
-          border={false}
+          background={false}
           >
             <div className="sr-only">Tìm kiếm</div>
-          </ButtonNav>  
+          </DefaultButton>  
 
           {/* Start register button */}
           { onLogin && (
-            <ButtonNav 
+            <DefaultButton 
               href="/user/register"
-              icon = {<LogIn />}>
+              icon = {<Zap />}>
                 Đăng ký
-            </ButtonNav>  
+            </DefaultButton>  
           )}
           {/* End register button */}
 
           
           {/* Start login button */}
           { onOthers && (
-            <ButtonNav 
+            <DefaultButton 
               href="/user/login"
               icon = {<LogIn />}>
                 Đăng nhập
-            </ButtonNav>  
+            </DefaultButton>  
           )}
           {/* End login button */}
         </div>

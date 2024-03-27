@@ -6,28 +6,28 @@ import THPTQG from "@/pages/courses/THPTQG"
 var infoRoutes = [
    {
       path: ["/grade-10"],
-      name: "Lớp 10",
+      title: "Lớp 10",
       icon: "ni ni-tv-2 text-primary",
       component: <Grade10 />,
       page: "/course",
    },
    {
       path: ["/grade-11"],
-      name: "Lớp 11",
+      title: "Lớp 11",
       icon: "ni ni-tv-2 text-primary",
       component: <Grade11 />,
       page: "/course",
    },
    {
       path: ["/grade-12"],
-      name: "Lớp 12",
+      title: "Lớp 12",
       icon: "ni ni-tv-2 text-primary",
       component: <Grade12 />,
       page: "/course",
    },
    {
       path: ["/thptqg"],
-      name: "Ôn thi THPTQG",
+      title: "Ôn thi THPTQG",
       icon: "ni ni-tv-2 text-primary",
       component: <THPTQG />,
       page: "/course",
